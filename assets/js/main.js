@@ -257,9 +257,7 @@ var Annotation = function(player, media) {
 			});
 			bookmark.click(function(e){
 				e.preventDefault();
-				self.media.setCurrentTime($(this).data("time"));
-				self.media.play();
-				self.show($(this).data("time"));
+				self.jump_to($(this).data("time"));
 			});
 			bookmark.appendTo($("div.bookmark"));
 		});
@@ -316,6 +314,12 @@ var Annotation = function(player, media) {
 	this.destroy_comment = function() {
 		$("div.comment_box").remove();
 	};
+
+	this.jump_to = function(time) {
+		this.media.setCurrentTime(time);
+		this.media.play();
+		this.show(time);
+	}
 }
 
 $(function(){
@@ -364,6 +368,16 @@ $(function(){
 				$(this).toggleClass("play");
 				$(this).text("Pause");
 			});
+
+			$("#comment a.jump").click(function(e){
+				e.preventDefault();
+				annotation.jump_to(annotation.time_to_sec($(this).data("time")));
+			})
 		}
+	});
+
+	$(".show_comment, .close_comment").click(function(e){
+		e.preventDefault();
+		$("#comment").toggle("slide");
 	});
 });

@@ -214,3 +214,13 @@ a:hover{
 a img{
 	border:none;
 }
+
+
+#comment {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #000;
+	color: #fff;
+	display: none;
+}

@@ -33,7 +33,7 @@
     <div data-role="header">
         <h1></h1>
         <a href="#nav-panel" data-icon="gear" data-iconpos="notext">Add</a>
-        <a href="#nav-panel" data-icon="arrow-l" data-iconpos="notext">Add</a>
+        <a class="show_comment" href="#" data-icon="arrow-l" data-iconpos="notext">Add</a>
     </div><!-- /header -->
 
     <div role="main" class="ui-content jqm-content jqm-fullwidth">
@@ -60,9 +60,9 @@
 
 	</div><!-- /content -->
 
-	<div data-role="panel" data-position="right" data-display="reveal" data-theme="b" id="nav-panel">
+	<div id="comment">
 		<ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-position="right" data-rel="close">Close</a></li>
+            <li data-icon="delete"><a class="close_comment" href="#" data-position="right" data-rel="close">Close</a></li>
 
             <li>
                 <div>
@@ -80,7 +80,7 @@
 
     <div data-role="header">
         <h1>Landing page</h1>
-    </div><!-- /header -->
+    </div><!-- /header -->#
 
     <div role="main" class="ui-content jqm-content">
 
