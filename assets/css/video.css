@@ -17,7 +17,7 @@ div.video_player > div {
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-}	
+}
 .video_control {
 	width: 100%;
 	height: 30px;
@@ -27,7 +27,7 @@ div.video_player > div {
 	list-style: none;
 	margin-bottom: 10px;
 
-}		
+}
 .video_control ul li {
 	margin-right: 5px;
 	float: left;
@@ -42,7 +42,7 @@ div.video_player > div {
 .video_control ul li.progress div.bookmark {
 	height: 10px;
 	position: relative;
-}		
+}
 .video_control ul li.progress div.bookmark a.bookmark {
 	position: absolute;
 	display: inline-block;
@@ -59,10 +59,19 @@ div.video_player > div {
 }
 
 div.comment_box {
-	width: 120px;
-	height: 70px;
+	/*width: 120px;*/
+	/*height: 70px;*/
 	margin-top: 3px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #000;
 	text-align: left;
+	text-shadow : none;
+	background-color: #fff;
+	z-index: 99;
+}
+div.comment_box label {
+	display: inline-block;
 }
 div.comment_box.no-comment {
 	width: 1px;
@@ -72,18 +81,29 @@ div.comment_box.no-comment {
 }
 div.comment_box textarea {
 	border-radius: 8px;
-	-webkit-border-radius: 8px;
 	display: inline-block;
-	width: 180px;
 	height: 85px;
 	padding: 10px;
 	resize: none;
 }
 
+div.comment_box .wrp_handwritting {
+	display: none;
+	width: 100%;
+	height: 112px;
+}
+div.comment_box .wrp_handwritting canvas {
+	width: 100%;
+	height: 112px;
+}
+
 div.comment_box form{
-	width: 80px;
 	height: 150px;
 	text-align: left;
+}
+
+div.comment_box .radio_wrapper {
+
 }
 
 div.comment_box button{
@@ -104,20 +124,19 @@ i.annotation {
 	content: "+";
 	border-radius: 50%;
 }
-#annotation canvas {
+#annotation .handwritting {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	left: 0;
 	right: 0;
-	background-color: #fff;
 }
 
 .comment,
 #addCommentContainer{
-	
+
 	/* Syling the comments and the comment form container */
-	
+
 	padding:10px;
 	width:210px;
 	position:relative;
@@ -125,9 +144,9 @@ i.annotation {
 	border:1px solid white;
 	color:#888;
 	word-wrap: break-word;
-	
+
 	/* CSS3 rounded corners and drop shadows */
-	
+
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
@@ -168,11 +187,11 @@ label span.error{
 	right:-10px;
 }
 
-#submit, 
+#submit,
 #reset{
-	
+
 	/* The submit button */
-	
+
 	background-color:#58B9EB;
 	border:1px solid #40A2D4;
 	color:#FFFFFF;

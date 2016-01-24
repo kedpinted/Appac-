@@ -10,16 +10,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="bower_components/mediaelement/build/mediaelementplayer.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.signature.package-1.1.2/jquery.signature.css">
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
 
 
 	<script src="assets/vendor/jquery/jquery.js"></script>
     <script src="assets/vendor/jqm/index.js"></script>
     <script src="assets/vendor/jqm/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
     <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery.signature.package-1.1.2/jquery.signature.min.js"></script>
+    <!--script type="text/javascript" src="assets/js/handwriting.js"></script-->
     <script type="text/javascript" src="assets/js/main.js"></script>
 
 
