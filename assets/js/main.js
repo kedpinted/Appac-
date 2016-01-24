@@ -1,147 +1,3 @@
-// var handwritting = {
-// 	canvas : null,
-// 	ctx : null,
-// 	options : {
-// 		flag : false,
-// 		prevX : 0,
-// 		currX : 0,
-// 		prevY : 0,
-// 		currY : 0,
-// 		dot_flag : false,
-// 		x : "black",
-// 		y : 5,
-// 		w: null,
-// 		h: null
-// 	},
-// 	init : function($ele, options) {
-// 		var self = this;
-
-// 		self.renderCanvas($ele);
-
-// 		self.canvas = $ele.find("canvas").get(0);
-// 		self.options.w = self.canvas.width;
-// 		self.options.h = self.canvas.height;
-// 		self.ctx = self.canvas.getContext("2d");
-
-// 		self.canvas.addEventListener("mousemove", function (e) {
-// 			self.findxy('move', e)
-// 		}, false);
-
-// 		self.canvas.addEventListener("mousedown", function (e) {
-// 			self.findxy('down', e)
-// 		}, false);
-
-// 		self.canvas.addEventListener("mouseup", function (e) {
-// 			self.findxy('up', e)
-// 		}, false);
-
-// 		self.canvas.addEventListener("mouseout", function (e) {
-// 			self.findxy('out', e)
-// 		}, false);
-// 	},
-
-// 	renderCanvas : function($ele) {
-// 		$("<canvas />").appendTo($ele).width($ele.width()).height($ele.height());
-// 		var html = '<div style="position:absolute;top:12%;left:43%;">Choose Color</div>';
-// 			html+= '<div style="position:absolute;top:15%;left:45%;width:10px;height:10px;background:green;" id="green" onclick="handwritting.color(this)"></div>';
-// 			html+= '<div style="position:absolute;top:15%;left:46%;width:10px;height:10px;background:blue;" id="blue" onclick="handwritting.color(this)"></div>';
-// 			html+= '<div style="position:absolute;top:15%;left:47%;width:10px;height:10px;background:red;" id="red" onclick="handwritting.color(this)"></div>';
-// 			html+= '<div style="position:absolute;top:17%;left:45%;width:10px;height:10px;background:yellow;" id="yellow" onclick="handwritting.color(this)"></div>';
-// 			html+= '<div style="position:absolute;top:17%;left:46%;width:10px;height:10px;background:orange;" id="orange" onclick="handwritting.color(this)"></div>';
-// 			html+= '<div style="position:absolute;top:17%;left:47%;width:10px;height:10px;background:black;" id="black" onclick="handwritting.color(this)"></div>';
-// 			html+= '<div style="position:absolute;top:20%;left:43%;">Eraser</div>';
-// 			html+= '<div style="position:absolute;top:22%;left:45%;width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>';
-// 			html+= '<img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">';
-// 			html+= '<input type="button" value="clear" id="clr" size="23" onclick="handwritting.erase()" style="position:absolute;top:55%;left:15%;">';
-// 			// $ele.append(html);
-// 	},
-
-// 	draw : function() {
-// 		this.ctx.beginPath();
-// 		this.ctx.moveTo(this.options.prevX, this.options.prevY);
-// 		this.ctx.lineTo(this.options.currX, this.options.currY);
-// 		this.ctx.strokeStyle = this.options.x;
-// 		this.ctx.lineWidth = this.options.y;
-// 		this.ctx.stroke();
-// 		this.ctx.closePath();
-// 	},
-
-// 	erase : function() {
-// 		var m = confirm("Want to clear");
-// 		if (m) {
-// 			this.ctx.clearRect(0, 0, this.options.w, this.options.h);
-// 			document.getElementById("canvasimg").style.display = "none";
-// 		}
-// 	},
-
-// 	color : function(obj) {
-// 		switch (obj.id) {
-// 			case "green":
-// 				this.options.x = "green";
-// 				break;
-// 			case "blue":
-// 				this.options.x = "blue";
-// 				break;
-// 			case "red":
-// 				this.options.x = "red";
-// 				break;
-// 			case "yellow":
-// 				this.options.x = "yellow";
-// 				break;
-// 			case "orange":
-// 				this.options.x = "orange";
-// 				break;
-// 			case "black":
-// 				this.options.x = "black";
-// 				break;
-// 			case "white":
-// 				this.options.x = "white";
-// 			break;
-// 		}
-// 		if (this.options.x == "white") this.options.y = 14;
-// 		else this.options.y = 2;
-// 	},
-
-// 	save : function() {
-// 		document.getElementById("canvasimg").style.border = "2px solid";
-// 		var dataURL = this.canvas.toDataURL();
-// 		document.getElementById("canvasimg").src = dataURL;
-// 		document.getElementById("canvasimg").style.display = "inline";
-// 	},
-
-// 	findxy : function(res, e) {
-// 		if (res == 'down') {
-// 			this.options.prevX = this.options.currX;
-// 			this.options.prevY = this.options.currY;
-// 			this.options.currX = e.clientX - this.canvas.offsetLeft;
-// 			this.options.currY = e.clientY - this.canvas.offsetTop;
-
-// 			this.options.flag = true;
-// 			this.options.dot_flag = true;
-// 			if (this.options.dot_flag) {
-// 				this.ctx.beginPath();
-// 				this.ctx.fillStyle = this.options.x;
-// 				this.ctx.fillRect(this.options.currX, this.options.currY, 2, 2);
-// 				this.ctx.closePath();
-// 				this.options.dot_flag = false;
-// 			}
-// 		}
-// 		if (res == 'up' || res == "out") {
-// 			this.options.flag = false;
-// 		}
-// 		if (res == 'move') {
-// 			if (this.options.flag) {
-// 				this.options.prevX = this.options.currX;
-// 				this.options.prevY = this.options.currY;
-// 				this.options.currX = e.clientX - this.canvas.offsetLeft;
-// 				this.options.currY = e.clientY - this.canvas.offsetTop;
-// 				this.draw();
-// 			}
-// 		}
-// 	}
-
-// }
-
 var Annotation = function(player, media) {
 
 	this.player = player;
@@ -184,7 +40,7 @@ var Annotation = function(player, media) {
 		comment_box.appendTo($ele);
 
 		$("#frm_comment").unbind("submit").submit(function(){
-			var input_type = $(this).find("[name=input_type]").val();
+			var input_type = $(this).find("[name=input_type]:checked").val();
 			var value = null;
 			if(input_type == 'handwritting') {
 				value = $("[name=handwritting_svg]").val();
@@ -347,9 +203,15 @@ var Annotation = function(player, media) {
 					}).text(data.comment);
 				if(data.type != 'comment' || data.value == undefined || data.value.length == 0) comment_box.addClass("no-comment");
 				if(data.type == 'handwritting') {
-					$("#annotation").append($("<div/>", {"class" : "handwritting"}))
-					$(".handwritting").signature('draw', data.value);
-					$(".handwritting").signature({disable : true, color : "#FF0000"});
+					if($(".handwritting_"+data.anno_id).length==0){
+						$("<div/>", {"class" : "handwritting handwritting_"+data.anno_id})
+							.width($("#annotation").width())
+							.height($("#annotation").height())
+							.insertAfter($("#annotation"));	
+					}
+					console.log("handwritting_"+data.anno_id);
+					$(".handwritting_"+data.anno_id).signature({disabled : true, color : "#FF0000"});
+					$(".handwritting_"+data.anno_id).signature('draw', data.value);
 				}
 				comment_box.appendTo($ele);
 			});
@@ -425,6 +287,6 @@ $(function(){
 
 	$(".show_comment, .close_comment").click(function(e){
 		e.preventDefault();
-		$("#comment").toggle("slide");
+		$("#comment").toggle("slide", { direction : "right" });
 	});
 });
