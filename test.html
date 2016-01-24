@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Accordion - Collapse content</title>
+  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="assets/vendor/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  });
+  </script>
+</head>
+<body>
+  <div class="content-fullwidth">
+    <div style="text-align: center">
+      <div class="video_player">
+        <video id="youtube1" width="860" height="480" autoplay preload="none" controls="false">
+          <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
+        </video>
+        <div id="annotation" data-vdo_id="2">
+        <!--  editor -->
+        </div>
+        <div class="video_control">
+          <ul>
+            <li><a class="pause play_pause" href="#">Pause</a></li>
+            <li class="progress">
+              <div class="bookmark"></div>
+              <div class="progress"></div>
+            </li>
+            <li><a class="mark" href="#">Bookmark</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-fullwidth-accord">
+    <div id="accordion">
+      <h3>Section 1</h3>
+      <div>
+        <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+      </div>
+  </div>
+
+  </div>
+
+
+ 
+</body>
+</html>
