@@ -187,7 +187,7 @@ var Annotation = function(player, media) {
 			var input_type = $(this).find("[name=input_type]").val();
 			var value = null;
 			if(input_type == 'handwritting') {
-				value = $(".handwritting").signature('toSVG');
+				value = $("[name=handwritting_svg]").val();
 			} else {
 				value = $(this).find("textarea[name=comment]").val()
 			}
@@ -203,8 +203,10 @@ var Annotation = function(player, media) {
 				$(".handwritting").show();
 				if(!$(".wrp_handwritting").data('rendered')) {
 					$("#annotation").append($("<div/>", {"class" : "handwritting"}))
+					$("#annotation").append($("<textarea/>", {"name" : "handwritting_svg"}).hide())
 					$(".handwritting").signature({
-						color: "#FF0000"
+						color: "#FF0000",
+						syncField : '[name=handwritting_svg]'
 					});
 					$(".wrp_handwritting").data('rendered', true);
 				}
@@ -219,11 +221,12 @@ var Annotation = function(player, media) {
 
 	this.destroy = function() {
 		$("div.comment_box").remove();
+		$(".handwritting").remove();
+		$("[name=handwritting_svg]").remove();
 	};
 
-	this.save_bookmark = function(vdo_id, input_type,value, time){
+	this.save_bookmark = function(vdo_id, input_type, value, time){
 		var self = this;
-		console.log('here');
 		$.ajax({
 			url : 'api/save_comment.php',
 			method: 'post',
