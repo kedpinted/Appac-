@@ -25,13 +25,14 @@ var Annotation = function(player, media) {
 		html+= '<form id="frm_comment">';
 		html+= '<div class="wrp_radio">';
 		html+= '	<input type="radio" id="rb_comment" name="input_type" value="comment" checked="checked"/> <label for="rb_comment">Comment</label>';
-		html+= '	<input type="radio" id="rb_handwritting" name="input_type" value="handwritting"/> <label for="rb_handwritting">Hand-Writing</label>';
+		html+= '	<input type="radio" id="rb_handwritting" name="input_type" value="handwritting"/> <label for="rb_handwritting">Handwriting</label>';
 		html+= '</div>';
 		html+= '<div class="wrapper">';
 		html+= '	<div class="wrp_comment">';
 		html+= '		<textarea name="comment"></textarea>';
 		html+= '	</div>';
 		html+= '	<div class="wrp_handwritting">';
+		html+= '		<textarea name="comment"></textarea>';				
 		html+= '	</div>';
 		html+= '</div>';
 		html+= '<button type="submit">Submit</button>';
@@ -268,7 +269,7 @@ $(function(){
 				annotation.save_bookmark($("#annotation").data("vdo_id"), null, null, media.currentTime);
 				annotation.bookmark($("#annotation").data("vdo_id"));
 			});
-
+			
 			$(".video_control").on("click", ".play", function(e){
 				e.preventDefault();
 				media.setCurrentTime($(this).data("currenttime"));
@@ -287,6 +288,6 @@ $(function(){
 
 	$(".show_comment, .close_comment").click(function(e){
 		e.preventDefault();
-		$("#comment").toggle("slide", { direction : "right" });
+		$("#comment").toggle("slide", { direction : "right",collapsible: "true" });
 	});
 });
