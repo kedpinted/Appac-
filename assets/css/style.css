@@ -1,0 +1,62 @@
+body,html {
+	height: 100%;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+#main_container #studio_container{
+	height: 64px;
+	width: 100%;
+	min-width: 768px;
+}
+#main_container{
+	background-color: #fff;
+}
+
+.header_bar{
+	height: 64px;
+	width: 100%;
+	background-color: #20232a;
+	color: #fff;
+	line-height: 64px;
+	position: relative;
+}
+.header_bar #logo_container{
+	width: 220px;
+	height: 64px;
+	background: url("/Appac-/images/Login/appac.png") no-repeat center;
+	background-size: 40%;
+	text-decoration: none;
+	cursor: pointer;
+	float: left;
+	opacity: 0.8;
+	z-index: 5;
+	display: inline-block;
+	position: relative;
+}
+.header_bar #header_container{
+	height: 64px;
+	float: right;
+	overflow: hidden;
+	padding-right: 20px;
+	display: inline-block;
+	opacity: 0.8;
+	position: relative;
+}
+.header_bar #facebook_image_container, 
+.header_bar #profile_image_container {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 22px;
+    float: right;
+    margin: 12px 0 0 15px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 5;
+    border: 2px solid transparent;
+}
+.header_bar #facebook_image_container,
+.header_bar #profile_image_container:hover {
+    border-color: #EABC00 ;
+}
