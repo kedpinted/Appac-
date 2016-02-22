@@ -15,12 +15,13 @@ div.video_player > div {
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	z-index: 10;
+	z-index: 20;
+	background-color: #fff;
 }
 .video_control {
 	width: 100%;
 	height: 30px;
-	padding-top: 1%;
+	padding-top: -10px;
 }
 .video_control ul {
 	list-style: none;
@@ -243,7 +244,7 @@ a img{
 	position: absolute;
 	top: 0;
 	right: 0;
-	background-color: #fff;
+	background-color: #000;
 	color: #fff;
 	display: none;
 	width: 18%;
