@@ -34,17 +34,13 @@
                 </div>
             </div>
         </div>
-
-        <div class="menu_moveable slide">
-            <div class="page_content">
-                <div class="container" id="view_container">
-                    <div id="view_frame">
-                        <video id="youtube1" width="100%" height="450" autoplay preload="none" controls="false">
-                            <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
-                        </video>
-                        <div id="annotation" data-vdo_id="2">
-                            <!--  editor -->
-                        </div>
+            <div class="container" id="view_container">
+                <div class="video_player">
+                    <video id="youtube1" width="720" height="450" autoplay preload="none" controls="false">
+                        <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
+                    </video>
+                    <div id="annotation" data-vdo_id="2">
+                        <!--  editor -->
                     </div>
                 </div>
             </div>
@@ -79,7 +75,6 @@
                     </div>
                 </div>
             </footer>
-        </div>
     </div>
 </body>
 </html>

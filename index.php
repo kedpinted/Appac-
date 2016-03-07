@@ -32,8 +32,6 @@
         <a class="show_comment" href="#" data-icon="arrow-l" data-iconpos="notext">Add</a>
     </div><!-- /header -->
 
-    <div role="main" class="ui-content jqm-content jqm-fullwidth">
-    <div style="text-align: center">
         <div class="video_player">
                 <video id="youtube1" width="720" height="450" autoplay preload="none" controls="false">
                     <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
@@ -52,9 +50,7 @@
                     </ul>
                 </div>
             </div>
-    </div>
 
-	</div><!-- /content -->
 
 	<div id="comment">
 		<ul data-role="listview">

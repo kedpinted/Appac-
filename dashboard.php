@@ -1,176 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>Appac | Dashboard</title>
+    <title>Annotation | Dashboard</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="assets/vendor/jquery/jquery.js"></script>  
-    <script src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>  
-    <link rel="stylesheet" href="bower_components/mediaelement/build/mediaelementplayer.min.css" />
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="ad_dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="ad_dist/css/skins/_all-skins.min.css">
-
-  </head>
-  <body class="hold-transition skin-yellow-light slidebar-mini">
-    <div class="wrapper">
-
-      <header class="main-header">
-
-      <a href="#" class="logo">
-          <span class="logo-lg"><b>A</b>ppac</span>
-          <span class="logo-mini"><b>A</b></span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-
-        <nav class="navbar" role="navigation">
-          <!-- Sidebar toggle button-->
-
-          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-          </a>
+    <link rel="stylesheet" type="text/css" href="bower_components/mediaelement/build/mediaelementplayer.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/video.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
-         <div class="navbar-custom-menu">
-           <div class="pull-right">
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/jquery/jquery-ui.min.js"></script>
 
-           <ul class="nav navbar-nav">
-              <li>
-              <form role="form">
-                        <input type="text" class="form-control" autocomplete="off" placeholder="Write something and press enter">
-                    </form>
-              
-              </li>
-            
-              <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
-                  <span class="label label-danger">10</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 10 notifications</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-user text-red"></i> You changed your username
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
-              <!-- Tasks: style can be found in dropdown.less -->
-              <!-- User Account: style can be found in dropdown.less -->
-        
-              <li>
-                    <a href="login.php"><i class="fa fa-sign-out"></i> Log out </a>
-              </li>
-
-            </ul>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery.signature/jquery.signature.min.js"></script>
+    <!--script type="text/javascript" src="assets/js/handwriting.js"></script-->
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</head>
+<body>
+    <div id="main_container">
+        <div id="studio_container">
+            <div id="studio_header_bar" class="header_bar">
+                <a href="#" id="logo_container"></a>
+                <div id="header_container">
+                    --Hello--
+                    <div id="profile_image_container">
+                        <img src="/Appac-/images/profile/rab.jpg">
+                    </div>
+                </div>
             </div>
-          </div>
-        </nav>
-      </header>
-      <!-- Left side column. contains the logo and sidebar -->
-
-      <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar"><br>
-          <!-- Sidebar user panel -->
-          <div class="user-panel">
-            <div align="center">
-              <img src="ad_dist/img/rabbit.jpg" class="img-circle" alt="User Image"><br><br>
-            
-              <p><strong>Stuart</strong></p><br><br>
-
-              <a href="add.php" class="btn btn-default">ADD url</a>
+        </div>
+    <div id="nav_bar">
+        <a href="#"><img src="/Appac-/images/upload.png"></a>
+    </div>
+    <div class="content_container">
+        <div class="flex_cards">
+            <div class="cards_container">
+                <div class="content_card universal_card">
+                    <div class="thumbnail_image">
+                        <div class="hover_icon_container">
+                            <div class="hover_icons">
+                                <a href="#" class="hover_icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
-        </section>
-        <!-- /.sidebar -->
-      </aside>
-
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header" style="padding-left:43px; padding-top:50px">
-
- <?php
-            @session_start();
+        </div>
+       <!--<?php
+            /*@session_start();
             include("connectdb.php");
 
-            $sql = "SELECT * FROM add_vdo ORDER BY id DESC";
-                    
+            $sql = "SELECT * FROM add_vdo ORDER BY id ASC LIMIT 0,6";
+
             $result = mysql_db_query("test-2015",$sql);
             while($rs=mysql_fetch_array($result)) {
               $idvdo = $rs["vdo_id"];
-              echo '<video width="300" height="180" id="player'.$rs['id'].'">';
-              echo "<source type='video/youtube'  src='https://www.youtube.com/embed/$idvdo'/>";
-              echo "</video>";
+              // echo '<video width="760" height="480" id="player'.$rs['id'].'">';
+              // echo "<source type='video/youtube'  src='https://www.youtube.com/embed/$idvdo'/>";
+              // echo "</video>";
+              echo '<div class="video">';
+              echo '<a href="#">';
+              echo '<img src="http://i1.ytimg.com/vi/'.$idvdo.'/hqdefault.jpg">';
+              echo '</a>';
+              echo '</div>';
             }
-              mysql_close();
-            ?>
-          
-          <span id="player1-mode"></span>
-          <script>
+            echo '<div class="clearfix">';
+              mysql_close();*/
+      ?>
+      <span id="player1-mode"></span>
+      <script>
+        $('video').mediaelementplayer({
+          success: function(media, node, player) {
+            $('#' + node.id + '-mode').html
+          }
+        });
+      </script>-->
 
-          $('video').mediaelementplayer({
-            success: function(media, node, player) {
-              $('#' + node.id + '-mode').html
-            }
-          });
-
-          </script>
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-
-
-    <!-- jQuery 2.1.4 -->
-    <script src="ad_plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-      $.widget.bridge('uibutton', $.ui.button);
-    </script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="ad_dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="ad_dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="ad_dist/js/demo.js"></script>
-  </body>
+    </div>
+  </div>
+</body>
 </html>
