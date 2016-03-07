@@ -90,7 +90,7 @@ body,html {
 .content_container{
 	width: calc(100% - 200px);
 	height: calc(100% - 65px);
-	background-color: #EEE;
+	background-color: #fff;
 	float: left;
 	overflow-y: scroll;
 }
@@ -99,7 +99,7 @@ body,html {
 	padding: 40px;
 	height: calc(100% - 80px);
 	position: relative;
-	background-color: #000;
+	background-color: #f1f1f1;
 }
 
 .flex-cards .cards-container{
@@ -110,28 +110,15 @@ body,html {
 }
 
 .cards_container{
-	width: 25%;
+	width: 22%;
 	margin-left: 2%;
 	display: inline-block;
 }
 
-@media (max-width: 1500px) and (min-width: 990px)
-.flex-cards :nth-child(3n+1) .content-card {
-    margin-left: 0;
-    clear: left;
-}
-
-@media (max-width: 1500px) and (min-width: 990px)
-.content-card {
-    width: 31%;
-    margin-right: 1%;
-    display: inline-block;
-}
-
 .universal_card{
 	overflow: hidden;
-	margin-bottom: 18px;
-	border: 1px solid #f1f1f1;
+	margin-bottom: 16px;
+	border: 1px solid #ddd;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	background-color: #fff;
@@ -166,13 +153,64 @@ body,html {
 .universal_card .thumbnail_image 
 .hover_icon_container .hover_icons .hover_icon{
 	display: inline-block;
-    width: 60px;
-    height: 60px;
-    margin: 0 5px;
-    border: 2px solid #fff;
+    width: 50px;
+    height: 50px;
+    margin: 5px 5px;
+    border: 4px solid #fff;
     border-radius: 100px;
+    opacity: 0.8;
     position: relative;
 }
+.universal_card .thumbnail_image 
+.hover_icon_container .hover_icons .hover_icon:hover{
+	border: 4px solid #EABC00;
+}
+
+.universal_card .utility_bar{
+    height: 30px;
+    z-index: 1;
+    position: relative;
+}
+
+.bottom_bar_container{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.bottom_bar_container .bottom_bar{
+	height: 100%;
+	z-index: 2;
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top: 1px solid #f1f1f1;
+}
+.bottom_bar_container .icon{ 
+	width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin-top: 6px;
+    float: left;
+    cursor: pointer;
+}
+.bottom_bar_container .icon .right{
+	float: right;
+	margin-right: 0;
+	margin-left: 17px;
+}
+.bottom_bar_container .icon .trash_bar{
+    margin-right: 13px;
+}
+
+.fa{
+	color: #ddd;
+}
+.fa:hover{
+	color: #EFCA52;
+}
+
+
+
 
 
 .menu_moveable{
