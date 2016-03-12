@@ -27,8 +27,25 @@
             <div id="studio_header_bar" class="header_bar">
                 <a href="#" id="logo_container"></a>
                 <div id="header_container">
-                    --Hello--
-                    <div id="profile_image_container">
+                    <?php 
+                    session_start();
+                    include("connectdb.php");
+                        if (!isset($_SESSION["logged_in"])) {
+                            header("Location: login.php");
+                            exit;
+                        }
+                        
+                        if($_SESSION["logged_in"]==1)
+                        { 
+                            echo $_SESSION["user_name"];
+                            echo '<a href="logout.php"><span>Logout</span></a></li>';
+                        }
+                        elseif($_SESSION["logged_in"]==false)
+                        {
+                            echo '<a href="login.php"><span>Login/Register</span></a></li>';
+                        }
+                    ?>
+                    <div id="profile_image_container" class="img-circle">
                         <img src="/Appac-/images/profile/rab.jpg">
                     </div>
                 </div>
@@ -54,6 +71,29 @@
                             <div class="bottom_bar">
                                 <div class="icon">
                                     <i data-toggle="tooltip" title="Delete" class="fa fa-trash-o fa-lg"></i>
+                                </div>
+                                <div class="icon right">
+                                    <i class="fa fa-trash-o fa-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards_container">
+                <div class="content_card universal_card">
+                    <div class="thumbnail_image">
+                        <div class="hover_icon_container">
+                            <div class="hover_icons">
+                                <a href="video.php" class="hover_icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="utility_bar">
+                        <div class="bottom_bar_container">
+                            <div class="bottom_bar">
+                                <div class="icon">
+                                    <i class="fa fa-trash-o fa-lg"></i>
                                 </div>
                                 <div class="icon right">
                                     <i class="fa fa-trash-o fa-lg"></i>

@@ -1,7 +1,12 @@
 body,html {
 	height: 100%;
-	background-color: #fff;
-	overflow: hidden;
+	background-color: #000;
+	background-size: cover;
+}
+
+.container{
+	width: 100%;
+	margin: auto;
 }
 
 #main_container{
@@ -53,7 +58,7 @@ body,html {
     display: inline-block;
     width: 40px;
     height: 40px;
-    border-radius: 22px;
+    border-radius:  50%;
     float: right;
     margin: 12px 0 0 15px;
     overflow: hidden;
@@ -67,7 +72,7 @@ body,html {
 }
 #nav_bar{
 	width: 200px;
-	height: 100%;
+	height: calc(100% - 65px);
 	float: left;
 	background-color: #000;
 	opacity: 0.9;
@@ -96,10 +101,18 @@ body,html {
 }
 
 .flex_cards{
-	padding: 40px;
-	height: calc(100% - 80px);
+	padding: 20px;
+	height: calc(100% - 40px);
 	position: relative;
 	background-color: #f1f1f1;
+}
+@media screen and (max-width: 762px) {
+    .flex_cards{
+		padding: 10px;
+		height: calc(100% - 50px);
+		position: relative;
+		background-color: #f1f1f1;
+	}
 }
 
 .flex-cards .cards-container{
@@ -110,7 +123,7 @@ body,html {
 }
 
 .cards_container{
-	width: 22%;
+	width: 30%;
 	margin-left: 2%;
 	display: inline-block;
 }
@@ -211,8 +224,6 @@ body,html {
 
 
 
-
-
 .menu_moveable{
 	-webkit-transition: 0.3s ease-out;
 	right: 0;
@@ -234,10 +245,6 @@ body,html {
 	left: 0;
 }
 
-.container{
-	width: 100%;
-	margin: auto;
-}
 
 div#view_container{
 	max-width: 750px;
