@@ -27,138 +27,116 @@
             <div id="studio_header_bar" class="header_bar">
                 <a href="#" id="logo_container"></a>
                 <div id="header_container">
+                   
                     <?php 
                     session_start();
                     include("connectdb.php");
-                        if (!isset($_SESSION["logged_in"])) {
+                        if (!isset($_SESSION["logged_in"])) 
+                        {
                             header("Location: login.php");
                             exit;
                         }
                         
                         if($_SESSION["logged_in"]==1)
                         { 
-                            echo $_SESSION["user_name"];
-                            echo '<a href="logout.php"><span>Logout</span></a></li>';
-                        }
-                        elseif($_SESSION["logged_in"]==false)
-                        {
-                            echo '<a href="login.php"><span>Login/Register</span></a></li>';
+                        //  echo $_SESSION["user_name"];
+                            echo '<a href="logout.php">';
+                            echo '<i class="fa fa-sign-out fa-lg"></i>';
+                            echo '<span>Logout</span>';
+                            echo '</a>';
                         }
                     ?>
-                    <div id="profile_image_container" class="img-circle">
-                        <img src="/Appac-/images/profile/rab.jpg">
-                    </div>
                 </div>
             </div>
         </div>
-    <div id="nav_bar">
-        <a href="#"><img src="/Appac-/images/upload.png"></a>
+        <div id="nav_bar">
+            <div id="nav_bar_container">
+                <div class="profile_image">
+                    <img src="/Appac-/images/profile_images/rabbit.jpg">
+                </div>
+                <div class="element name">
+                    Username
+                    <i class="fa fa-pencil-square-o"></i>
+                </div>
+                    <div class="upload">
+                    <a href="#"><img src="/Appac-/images/upload.png"></a>
+                </div>
+            </div>
+            
+        </div>  
+        <div class="content_container">
+            <div class="flex_cards">
+                <div class="cards_container">
+                <?php
+                    session_start();
+                    include("connectdb.php");
+                    $sql = "SELECT * FROM add_vdo ORDER BY id ASC LIMIT 0,6";
+                    $result = mysql_db_query("test-2015",$sql);
+                    while($rs=mysql_fetch_array($result)) {
+                        $idvdo = $rs["vdo_id"];
+                        
+                        echo '<div class="content_card universal_card">';
+                        echo '<div class="thumbnail_image">';
+                        echo '<a href="video.php">';
+                        echo '<div class="hover_icon_container">';
+                        echo '<img src="http://i1.ytimg.com/vi/'.$idvdo.'/hqdefault.jpg" width="280" height="180">';
+                        echo '<div class="hover_icons">';
+                        echo '<div class="hover_icon">';
+                        echo '<i class="fa fa-play fa-2x">';
+                        echo '</i>';
+                        //<i class="fa fa-play-circle-o fa-4x"></i>
+                        echo '</a>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '<div class="utility_bar">';
+                        echo '<div class="bottom_bar_container">';
+                        echo '<div class="bottom_bar">';
+                        echo '<div class="icon">';
+                        echo '<i class="fa fa-trash-o fa-lg">';
+                        echo '</i>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                        echo '<div class="clearfix">';
+                    mysql_close();
+                ?>
+
+           <!--<?php
+                /*@session_start();
+                include("connectdb.php");
+
+                $sql = "SELECT * FROM add_vdo ORDER BY id ASC LIMIT 0,6";
+
+                $result = mysql_db_query("test-2015",$sql);
+                while($rs=mysql_fetch_array($result)) {
+                  $idvdo = $rs["vdo_id"];
+                  // echo '<video width="760" height="480" id="player'.$rs['id'].'">';
+                  // echo "<source type='video/youtube'  src='https://www.youtube.com/embed/$idvdo'/>";
+                  // echo "</video>";
+                  echo '<div class="video">';
+                  echo '<a href="#">';
+                  echo '<img src="http://i1.ytimg.com/vi/'.$idvdo.'/hqdefault.jpg">';
+                  echo '</a>';
+                  echo '</div>';
+                }
+                echo '<div class="clearfix">';
+                  mysql_close();*/
+          ?>
+          <span id="player1-mode"></span>
+          <script>
+            $('video').mediaelementplayer({
+              success: function(media, node, player) {
+                $('#' + node.id + '-mode').html
+              }
+            });
+          </script>-->
+            </div>
+        </div>
     </div>
-    <div class="content_container">
-        <div class="flex_cards">
-            <div class="cards_container">
-                <div class="content_card universal_card">
-                    <div class="thumbnail_image">
-                        <div class="hover_icon_container">
-                            <div class="hover_icons">
-                                <!--<a href="#" class="hover_icon"></a>-->
-                                <i class="fa fa-play-circle-o fa-4x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="utility_bar">
-                        <div class="bottom_bar_container">
-                            <div class="bottom_bar">
-                                <div class="icon">
-                                    <i data-toggle="tooltip" title="Delete" class="fa fa-trash-o fa-lg"></i>
-                                </div>
-                                <div class="icon right">
-                                    <i class="fa fa-trash-o fa-lg"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cards_container">
-                <div class="content_card universal_card">
-                    <div class="thumbnail_image">
-                        <div class="hover_icon_container">
-                            <div class="hover_icons">
-                                <a href="video.php" class="hover_icon"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="utility_bar">
-                        <div class="bottom_bar_container">
-                            <div class="bottom_bar">
-                                <div class="icon">
-                                    <i class="fa fa-trash-o fa-lg"></i>
-                                </div>
-                                <div class="icon right">
-                                    <i class="fa fa-trash-o fa-lg"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cards_container">
-                <div class="content_card universal_card">
-                    <div class="thumbnail_image">
-                        <div class="hover_icon_container">
-                            <div class="hover_icons">
-                                <a href="video.php" class="hover_icon"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="utility_bar">
-                        <div class="bottom_bar_container">
-                            <div class="bottom_bar">
-                                <div class="icon">
-                                    <i class="fa fa-trash-o fa-lg"></i>
-                                </div>
-                                <div class="icon right">
-                                    <i class="fa fa-trash-o fa-lg"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!--flex_cards-->
-
-       <!--<?php
-            /*@session_start();
-            include("connectdb.php");
-
-            $sql = "SELECT * FROM add_vdo ORDER BY id ASC LIMIT 0,6";
-
-            $result = mysql_db_query("test-2015",$sql);
-            while($rs=mysql_fetch_array($result)) {
-              $idvdo = $rs["vdo_id"];
-              // echo '<video width="760" height="480" id="player'.$rs['id'].'">';
-              // echo "<source type='video/youtube'  src='https://www.youtube.com/embed/$idvdo'/>";
-              // echo "</video>";
-              echo '<div class="video">';
-              echo '<a href="#">';
-              echo '<img src="http://i1.ytimg.com/vi/'.$idvdo.'/hqdefault.jpg">';
-              echo '</a>';
-              echo '</div>';
-            }
-            echo '<div class="clearfix">';
-              mysql_close();*/
-      ?>
-      <span id="player1-mode"></span>
-      <script>
-        $('video').mediaelementplayer({
-          success: function(media, node, player) {
-            $('#' + node.id + '-mode').html
-          }
-        });
-      </script>-->
-
-    </div>
-  </div>
 </body>
 </html>
