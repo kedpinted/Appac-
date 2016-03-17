@@ -79,7 +79,6 @@ body {
 }
 #nav_bar #nav_bar_container{
 	width: 200px;
-	height: 180px;
 	text-align: center;
 }
 
@@ -91,8 +90,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin: 30px 0 20px 0;
     border: 3px solid #f1f1f1;
 }
 #nav_bar #nav_bar_container 
@@ -246,7 +244,7 @@ body {
 }
 
 .universal_card .utility_bar{
-    height: 30px;
+    height: 35px;
     z-index: 5;
     position: relative;
 }
@@ -259,16 +257,18 @@ body {
 .bottom_bar_container .bottom_bar{
 	height: 100%;
 	z-index: 2;
-	position: relative;
-	padding-left: 5px;
-	padding-right: 5px;
+	position: relative;	
+	padding: 5px 5px 0 10px;
 	border-top: 1px solid #f1f1f1;
+}
+.bottom_bar_container .text{
+	float: left;
+	position: relative;
 }
 .bottom_bar_container .icon{ 
 	width: 25px;
     height: 25px;
     display: inline-block;
-    margin-top: 5px;
     float: right;
     cursor: pointer;
 }
@@ -279,18 +279,6 @@ body {
 	color: #EFCA52;
 }
 
-
-
-.menu_moveable{
-	-webkit-transition: 0.3s ease-out;
-	right: 0;
-}
-.slide{
-	position: absolute;
-	opacity: 1;
-	width: 100%;
-	min-height: 100%;
-}
 
 .page_content{
 	overflow: hidden;
@@ -305,6 +293,7 @@ body {
 
 div#view_container{
 	max-width: 750px;
+	text-align: center;
 }
 
 #view_container{
@@ -327,13 +316,9 @@ footer{
 }
 .footer{
 	width: 100%;
-	height: 10%;
+	height: 8%;
 	background-color: #3c3c3c;
-	opacity: .8;
+	opacity: .9;
 	bottom: 0;
 	position: absolute;
 }
-.footer .for_sure .loaded_footer{
-	opacity: 1 !important;
-}
-

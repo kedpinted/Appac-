@@ -28,13 +28,13 @@ div.video_player > div {
 
 }
 .video_control ul li {
-	margin-right: 5px;
+	margin-right: 15px;
 	float: left;
-	width: 5%;
-	border: 1px solid #000;
+	width: 3%;
 }
 .video_control ul li.progress {
-	width: 80%;
+	width: 85%;
+	padding-right: 5px;
 	border-radius: 4px;
 	background-color: #FFF;
 }

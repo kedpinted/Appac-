@@ -48,6 +48,10 @@ include("connectdb.php");
 				<input type="text" style="margin-left:50px; margin-top:10px;" name="user_email" required  size="25" class="register-input" 
 				id="user_email" maxlength="40" placeholder="E-mail" />
 			</div>
+			<div style="margin-left:50px; margin-top:30px; font-size:42px; color:#ffffff;">  image
+				<input type="text" style="margin-left:50px; margin-top:10px;" name="profile_image" required  size="25" class="register-input" 
+				id="profile_image" maxlength="40" placeholder="profile_image" />
+			</div>
 
 			<div style="text-align:center">
 			<input type="submit" style="margin-top:50px;width:150px;height:40px; background-color:#20b784; border-radius:5px;border: 1px solid #284473; font-size:1.5em; color:#FFF;" 

@@ -10,7 +10,8 @@ include("connectdb.php");
 	else{
 		$sql = "INSERT INTO account
 		VALUES (null,'".$_POST['user_firstname']."','".$_POST['user_lastname']."',
-			'".$_POST['user_name']."','".$_POST['user_pass']."','".$_POST['user_email']."')";
+				'".$_POST['user_name']."','".$_POST['user_pass']."','".$_POST['user_email']."'),
+				'".$_POST['profile_image']."')";
 				
 		$objQuery = mysql_query($sql);
 

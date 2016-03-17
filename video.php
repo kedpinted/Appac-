@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+include("connectdb.php");
+?>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Appac | Annotation</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="bower_components/mediaelement/build/mediaelementplayer.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
@@ -27,16 +32,22 @@
             <div id="studio_header_bar" class="header_bar">
                 <a href="#" id="logo_container"></a>
                 <div id="header_container">
-                    --Hello--
-                    <div id="profile_image_container">
-                        <img src="/Appac-/images/profile/rab.jpg">
-                    </div>
+                    <?php 
+                        if($_SESSION["logged_in"]==1)
+                        { 
+                        //  echo $_SESSION["user_name"];
+                            echo '<a href="logout.php">';
+                            echo '<i class="fa fa-sign-out fa-lg"></i>';
+                            echo '<span>Logout</span>';
+                            echo '</a>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
-            <div class="container" id="view_container">
+            <div id="view_container">
                 <div class="video_player">
-                    <video id="youtube1" width="720" height="450" autoplay preload="none" controls="false">
+                    <video id="youtube1" width="720" height="450" preload="none" controls="false">
                         <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
                     </video>
                     <div id="annotation" data-vdo_id="2">
@@ -60,18 +71,29 @@
             </div>
 
             <footer>
-                <div class="footer for_sure load_footer">
-                    <div class="footer_container">
-                        <div class="video_control">
-                            <ul>
-                                <li><a class="pause play_pause" href="#">Pause</a></li>
-                                <li class="progress">
-                                    <div class="bookmark"></div>
-                                    <div class="progress"></div>
-                                </li>
-                                <li><a class="mark" href="#">Bookmark</a></li>
-                            </ul>
-                        </div>
+                <div class="footer">
+                    <div class="video_control">
+                        <ul>
+                            <li>
+                                <a class="pause play_pause" href="#">
+                                    <i class="fa fa-pause fa-2x"></i>
+                                </a>
+                            </li>
+                            <li class="progress">
+                                <div class="bookmark"></div>
+                                <div class="progress"></div>
+                            </li>
+                            <li>
+                                <a class="mark" href="#">
+                                    <i class="fa fa-bookmark fa-2x"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="#">
+                                    <i class="fa fa-expand fa-2x"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </footer>

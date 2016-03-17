@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+ob_start();
+include("connectdb.php");
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -29,8 +34,6 @@
                 <div id="header_container">
                    
                     <?php 
-                    session_start();
-                    include("connectdb.php");
                         if (!isset($_SESSION["logged_in"])) 
                         {
                             header("Location: login.php");
@@ -55,11 +58,16 @@
                     <img src="/Appac-/images/profile_images/rabbit.jpg">
                 </div>
                 <div class="element name">
-                    Username
+                    <?php 
+                        if($_SESSION["logged_in"]==1)
+                        {
+                            echo $_SESSION["user_name"];
+                        }
+                    ?>
                     <i class="fa fa-pencil-square-o"></i>
                 </div>
                     <div class="upload">
-                    <a href="#"><img src="/Appac-/images/upload.png"></a>
+                        <a href="add.php"><img src="/Appac-/images/upload.png"></a>
                 </div>
             </div>
             
@@ -68,41 +76,43 @@
             <div class="flex_cards">
                 <div class="cards_container">
                 <?php
-                    session_start();
-                    include("connectdb.php");
                     $sql = "SELECT * FROM add_vdo ORDER BY id ASC LIMIT 0,6";
                     $result = mysql_db_query("test-2015",$sql);
                     while($rs=mysql_fetch_array($result)) {
-                        $idvdo = $rs["vdo_id"];
-                        
-                        echo '<div class="content_card universal_card">';
-                        echo '<div class="thumbnail_image">';
-                        echo '<a href="video.php">';
-                        echo '<div class="hover_icon_container">';
-                        echo '<img src="http://i1.ytimg.com/vi/'.$idvdo.'/hqdefault.jpg" width="280" height="180">';
-                        echo '<div class="hover_icons">';
-                        echo '<div class="hover_icon">';
-                        echo '<i class="fa fa-play fa-2x">';
-                        echo '</i>';
-                        //<i class="fa fa-play-circle-o fa-4x"></i>
-                        echo '</a>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '<div class="utility_bar">';
-                        echo '<div class="bottom_bar_container">';
-                        echo '<div class="bottom_bar">';
-                        echo '<div class="icon">';
-                        echo '<i class="fa fa-trash-o fa-lg">';
-                        echo '</i>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                        echo '<div class="clearfix">';
+                        $linkvdo = $rs["vdo_id"];
+                        $idvdo = $rs["id"];
+                        $namevdo = $rs["vdo_name"];
+
+                        echo "<div class=\"content_card universal_card\">
+                                <div class=\"thumbnail_image\">
+                                    <a href=\"video.php\">
+                                        <div class=\"hover_icon_container\">
+                                            <img src=\"http://i1.ytimg.com/vi/".$linkvdo."/hqdefault.jpg\" width=\"280\" height=\"180\">
+                                             <div class=\"hover_icons\">
+                                                <div class=\"hover_icon\">
+                                                    <i class=\"fa fa-play fa-2x\"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class=\"utility_bar\">
+                                    <div class=\"bottom_bar_container\">
+                                        <div class=\"bottom_bar\">
+                                            <div class=\"text\">
+                                                ".$namevdo."
+                                            </div>
+                                            <div class=\"icon\">
+                                                <a href=\"delete_video.php?id=".$idvdo."\">
+                                                    <i class=\"fa fa-trash-o fa-lg\"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>";
+                        }
+                    echo '<div class="clearfix">';
                     mysql_close();
                 ?>
 

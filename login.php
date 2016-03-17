@@ -2,19 +2,25 @@
 <?php
 session_start();
 include("connectdb.php");
-include("css.html");
 ?>
 
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+
     <title>APPAC | Login</title>
-    <link href="assets/css/signin.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/bootstrap-social.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/login.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet">
 </head>
 
-<body  background="images/Login/login.jpg" position:"center";>
-    <div class="container" align="center">
+<body>
+    <div id="main">
+        <div id="main_container">
         <div class="logo">
             <img src="images/Login/appac.png"/>
         </div>
@@ -37,6 +43,6 @@ include("css.html");
                 <p>Create Account</p>
             </a>
         </form>
-            </div> <!-- /container -->
+    </div> <!-- /container -->
 </body>
 </html>
