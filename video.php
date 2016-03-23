@@ -32,7 +32,9 @@ include("connectdb.php");
             <div id="studio_header_bar" class="header_bar">
                 <a href="#" id="logo_container"></a>
                 <div id="header_container">
+                   
                     <?php 
+                        
                         if($_SESSION["logged_in"]==1)
                         { 
                         //  echo $_SESSION["user_name"];
@@ -45,9 +47,20 @@ include("connectdb.php");
                 </div>
             </div>
         </div>
+        <!--<div class="navbar_header">
+            <div class="menu-opener">
+                <div class="menu-opener-inner"></div>
+            </div>
+        </div>-->
+        <nav class="navbar">
+            <div class="navbar_container">
+        </nav>
+
+
+
             <div id="view_container">
                 <div class="video_player">
-                    <video id="youtube1" width="720" height="450" preload="none" controls="false">
+                    <video id="youtube1" width="720" height="450"  preload="none" controls="false">
                         <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
                     </video>
                     <div id="annotation" data-vdo_id="2">
