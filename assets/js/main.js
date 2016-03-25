@@ -290,4 +290,12 @@ $(function(){
 		e.preventDefault();
 		$("#comment").toggle("slide", { direction : "right",collapsible: "true" });
 	});
+
+	$(".menu-opener").click(function(e){
+		e.preventDefault();
+  		$(".menu-opener, .menu-opener-inner, .menu, .menu_inner").toggleClass("active");
+	});
+
 });
+
+

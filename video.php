@@ -27,38 +27,35 @@ include("connectdb.php");
             <div id="studio_header_bar" class="header_bar">
                 <a href="#" id="logo_container"></a>
                 <div id="header_container">
-                   
                     <?php 
-                        
                         if($_SESSION["logged_in"]==1)
                         { 
                         //  echo $_SESSION["user_name"];
-                            echo '<a href="logout.php">';
-                            echo '<i class="fa fa-sign-out fa-lg"></i>';
-                            echo '<span>Logout</span>';
-                            echo '</a>';
+                            echo "<a href=\"logout.php\">
+                                    <i class=\"fa fa-sign-out fa-lg\"></i>
+                                    <span>Logout</span>
+                                 </a>";
                         }
                     ?>
                 </div>
             </div>
         </div>
-        <!--<div class="navbar_header">
-            <div class="menu-opener">
-                <div class="menu-opener-inner"></div>
-            </div>
-        </div>-->
         <div class="navbar">
             <div class="navbar_container">
                 <nav class="menu-opener">
                     <div class="menu-opener-inner"></div>
                 </nav>
-                <nav class="menu">
-                    <ul class="menu-inner">
-                        </a>
-                    </ul>
-                </nav>
             </div>
         </div>
+        <nav class="menu">
+            <ul class="menu_inner">
+                <li>
+                    <?php
+                        include("comment.php");
+                    ?>
+                </li>
+            </ul>
+        </nav>
             <div id="view_container">
                 <div class="video_player">
                     <video id="youtube1" width="720" height="450"  preload="none" controls="false">
@@ -70,7 +67,9 @@ include("connectdb.php");
                 </div>
             </div>
 
-            <div id="comment">
+
+
+            <!--<div id="comment">
                 <ul data-role="listview">
                     <li data-icon="delete"><a class="close_comment" href="#" data-position="right" data-rel="close">Close</a></li>
 
@@ -82,9 +81,8 @@ include("connectdb.php");
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div>-->
 
-            <footer>
                 <div class="footer">
                     <div class="video_control">
                         <ul>
@@ -110,8 +108,6 @@ include("connectdb.php");
                         </ul>
                     </div>
                 </div>
-            </footer>
     </div>
-    <script src="menu-opener.js"></script>
 </body>
 </html>
