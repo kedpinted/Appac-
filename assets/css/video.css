@@ -16,6 +16,7 @@ div.video_player > div {
 	right: 0;
 	margin: 0 auto;
 	z-index: 20;
+	cursor: url(/Appac-/images/cursor/plus.png), auto;
 }
 
 .close_comment{
