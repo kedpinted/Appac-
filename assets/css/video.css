@@ -17,6 +17,12 @@ div.video_player > div {
 	margin: 0 auto;
 	z-index: 20;
 }
+
+.close_comment{
+	cursor: pointer;
+	float: right;
+}
+
 .footer {
 	width: 100%;
     position: absolute;

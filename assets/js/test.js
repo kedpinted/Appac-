@@ -22,6 +22,9 @@ var Annotation = function(player, media) {
 
 		var html = '';
 		html+= '<i class="annotation"></i>';
+		html+= '<div class="close_comment">';
+		html+= 	'<i class="fa fa-times"></i>';
+		html+= '</div>';
 		html+= '<form id="frm_comment">';
 		html+= '<div class="wrp_radio">';
 		html+= '	<input type="radio" id="rb_comment" name="input_type" value="comment" checked="checked"/> <label for="rb_comment">Comment</label>';
@@ -73,6 +76,10 @@ var Annotation = function(player, media) {
 				$(".handwritting").hide();
 				$(".wrp_comment").show();
 			}
+		});
+		$(".close_comment").click(function(e){
+			e.preventDefault();
+			self.destroy();
 		});
 	};
 

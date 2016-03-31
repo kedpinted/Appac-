@@ -12,7 +12,7 @@
             echo "<li>
                     <div class=\"profile\">
                         <div class=\"image\">
-                            <img src=\"/Appac-/images/profile_images/rabbit_mini.jpg\">
+                            <img src=\"/Appac-/images/profile/rab.jpg\">
                         </div>
                         <div class=\"edit\">
                             <a href='update.php?anno_id=$id'>
