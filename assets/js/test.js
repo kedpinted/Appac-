@@ -23,7 +23,7 @@ var Annotation = function(player, media) {
 		var html = '';
 		html+= '<i class="annotation"></i>';
 		html+= '<div class="close_comment">';
-		html+= 	'<i class="fa fa-times"></i>';
+		html+= 	'<i class="fa fa-times fa-lg"></i>';
 		html+= '</div>';
 		html+= '<form id="frm_comment">';
 		html+= '<div class="wrp_radio">';
@@ -80,6 +80,10 @@ var Annotation = function(player, media) {
 		$(".close_comment").click(function(e){
 			e.preventDefault();
 			self.destroy();
+		});
+
+		$(function(e) {
+		    $(".comment_box").draggable();
 		});
 	};
 

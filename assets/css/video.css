@@ -23,6 +23,9 @@ div.video_player > div {
 	cursor: pointer;
 	float: right;
 }
+.close_comment i:hover{
+	color: #FF0000;
+}
 
 .footer {
 	width: 100%;
@@ -31,7 +34,8 @@ div.video_player > div {
     z-index: 1;
     left: 0;
     bottom: 0;
-    background: #5C5D60;
+    /*background: #5C5D60;*/
+    background: rgba(0,0,0,0.7);
     border: 1px solid transparent;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -62,14 +66,16 @@ div.video_player > div {
 
 .video_control ul li.left {
 	width: 6.5%;
-    padding-top: 8px;
+    padding-top: 6px;
     padding-left: 2.5%;
+    font-size: .8em;
 }
 
 .video_control ul li.right {
 	width: 9.5%;
-	padding-top: 8px;
+	padding-top: 6px;
     padding-left: 2%;
+    font-size: .8em;
 }
 .video_control ul li.right a{
 	padding-right: 18%;
@@ -77,7 +83,7 @@ div.video_player > div {
 
 .video_control ul li.progres {
 	width: 84%;
-    margin-top: 4px;
+    margin-top: 2px;
     border-radius: 4px;
    /* background-color: #FFF;*/
 }
@@ -90,31 +96,37 @@ div.video_player > div {
 .video_control ul li.progres div.bookmark a.bookmark {
 	position: absolute;
 	display: inline-block;
-	width: 8px;
-	height: 8px;
-	background-color: #F00;
+	width: 15px;
+	height: 20px;
+	/*background-color: #F00;
 	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	/*background-image: url('/Appac-/images/pin.png');*/
+	border-bottom-right-radius: 4px;*/
+	background-image: url('/Appac-/images/bookmark/pin.png');
+	background-repeat: no-repeat;
+	opacity: 0.8;
+}
+.video_control ul li.progres div.bookmark a.bookmark:hover{
+	opacity: 1;
 }
 .video_control ul li.progres div.progres {
 	height: 6px;
 	background-color: #EABC00;
-	margin-bottom: 5px;
+	margin: 8px 0;
 }
 
 
 div.comment_box {
 	/*width: 120px;*/
-	height: 190px;
-	margin-top: 3px;
-	padding: 10px;
-	border-radius: 5px;
-	border: 1px solid #000;
-	text-align: left;
-	text-shadow : none;
-	background-color: #fff;
-	z-index: 99;
+	height: 170px;
+    margin-top: 3px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    text-align: left;
+    text-shadow: none;
+    background-color: #fff;
+    z-index: 99;
+    cursor: move;
 }
 div.comment_box label {
 	display: inline-block;
@@ -127,16 +139,20 @@ div.comment_box.no-comment {
 }
 div.comment_box textarea {
 	border-radius: 8px;
-	display: inline-block;
-	height: 85px;
-	padding: 10px;
-	resize: none;
+    display: inline-block;
+    height: 75px;
+    width: 180px;
+    padding: 5px 8px;
+    margin-bottom: 5px;
+    resize: none;
 }
 
+input[type="radio"]{
+    margin: -3px 0 0;
+}
 div.comment_box .wrp_handwritting {
 	display: none;
 	width: 100%;
-	height: 112px;
 }
 div.comment_box .wrp_handwritting canvas {
 	width: 100%;
@@ -154,20 +170,21 @@ div.comment_box .radio_wrapper {
 
 div.comment_box button{
 	display: block;
-	width: 60px;
-	height: 25px;
-	border-style: none;
-	background-color: yellow;
-	border-radius: 2px;
-	margin-left: 60px;
+    width: 60px;
+    height: 25px;
+    border-style: none;
+    background-color: #e5e5e5;
+    border-radius: 2px;
+    margin-left: 60px;
+    font-size: 0.95em;
+    font-weight: bold;
 }
 
 i.annotation {
 	display: inline-block;
 	width: 15px;
 	height: 15px;
-	background-color: #e60000;
-	content: "+";
+	content: "\f0fe";
 	border-radius: 50%;
 }
 .handwritting {
@@ -227,8 +244,9 @@ i.annotation {
 }
 
 label{
-	font-size:16px;
-	padding-top: 5px;
+	font-size: 14px;
+    padding-top: 4px;
+    padding-right: 5px;
 }
 
 label span.error{

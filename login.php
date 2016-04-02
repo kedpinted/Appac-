@@ -2,6 +2,7 @@
 <?php
 session_start();
 include("connectdb.php");
+include("css.html")
 ?>
 
 <html lang="en">
@@ -11,11 +12,7 @@ include("connectdb.php");
     <link rel="icon" href="/favicon.ico">
 
     <title>APPAC | Login</title>
-    <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/bootstrap-social.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/login.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet">
 </head>
 
 <body>

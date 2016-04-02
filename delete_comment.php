@@ -5,7 +5,7 @@
                                                     
     $result = mysql_query($sql) or die(mysql_error());
 
-    header("location:index.php");	
+    header("location:video.php");	
 
     mysql_close();
 ?>

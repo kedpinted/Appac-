@@ -16,7 +16,7 @@
                         </div>
                         <div class=\"edit\">
                             <a href='update.php?anno_id=$id'>
-                                <i class=\"fa fa-pencil-square-o\"></i>
+                                <i class=\"fa fa-pencil-square-o fa-lg\"></i>
                             </a> 
                             <a href='delete_comment.php?anno_id=$id'>
                                 <i class=\"fa fa-trash-o fa-lg\"></i>

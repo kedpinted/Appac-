@@ -297,13 +297,10 @@ body {
 }
 .fa{
 	color: #ababab;
-	font-size: 1.5em !important;
 }
 .fa:hover{
 	color: #EABC00;
 }
-
-
 
 .page_content{
 	overflow: hidden;
@@ -511,8 +508,8 @@ body {
 	height: calc(100% - 23%);
 }
 
-img{
-	display: inline-block;
+.menu_inner.active li .profile .image img{
+	   display: inline-block;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -523,7 +520,7 @@ img{
     height: 23%;
 } 
 .menu_inner.active li .profile .edit a{
-    padding: 0 7px;
+    padding: 0 8px;
     color: #000;
     text-decoration: none; 
     float: left;

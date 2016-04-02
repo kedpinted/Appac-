@@ -1,30 +1,17 @@
 <!DOCTYPE html>
 <?php 
+include("connectdb.php");
+include("css.html");
 session_start();
 ob_start();
-include("connectdb.php");
 ?>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Annotation | Dashboard</title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/mediaelement/build/mediaelementplayer.min.css">
     
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/jquery/jquery-ui.min.js"></script>
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
-    <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript" src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="assets/vendor/jquery.signature/jquery.signature.min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
 </head>
 <body>
     <div id="main_container">
@@ -55,7 +42,7 @@ include("connectdb.php");
         <div id="nav_bar">
             <div id="nav_bar_container">
                 <div class="profile_image">
-                    <img src="/Appac-/images/profile_images/rabbit.jpg">
+                    <img src="/Appac-/images/profile/rabbit.jpg">
                 </div>
                 <div class="element name">
                     <?php 

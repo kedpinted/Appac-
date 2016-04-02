@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <?php 
+include("connectdb.php");
+include("css.html");
 session_start();
 ob_start();
-include("connectdb.php");
 ?>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Appac | Annotation</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="bower_components/mediaelement/build/mediaelementplayer.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/vendor/jquery.signature/jquery.signature.min.js"></script>
     <script type="text/javascript" src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.4/waves.min.js"></script>
     <script type="text/javascript" src="assets/js/test.js"></script>
+
+    
 </head>
 <body>
     <div id="main_container">
@@ -33,12 +30,11 @@ include("connectdb.php");
                         if($_SESSION["logged_in"]==1)
                         { 
                         //  echo $_SESSION["user_name"];
-                            echo "<a href=\"logout.php\">
-                                    <i class=\"fa fa-sign-out fa-lg\"></i>
-                                    <span>Logout</span>
-                                 </a>";
+                            echo '<a href="logout.php">';
+                            echo '<i class="fa fa-sign-out fa-lg"></i>';
+                            echo '<span>Logout</span>';
+                            echo '</a>';
                         }
-                        mysql_close();
                     ?>
                 </div>
             </div>
@@ -88,10 +84,10 @@ include("connectdb.php");
                     </li>
                     <li class="right">
                         <a class="mark" href="#">
-                            <i class="fa fa-bookmark fa"></i>
+                            <i class="fa fa-bookmark fa-2x"></i>
                         </a>
                         <a class="fullscreen" href="#">
-                            <i class="fa fa-expand fa"></i>
+                            <i class="fa fa-expand fa-2x"></i>
                         </a>
                     </li>
                 </ul>
