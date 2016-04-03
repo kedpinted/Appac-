@@ -18,7 +18,7 @@ ob_start();
     <script type="text/javascript" src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
     <script type="text/javascript" src="assets/js/test.js"></script>
 
-    
+
 </head>
 <body>
     <div id="main_container">
@@ -41,6 +41,9 @@ ob_start();
         </div>
         <div class="navbar">
             <div class="navbar_container">
+                <div class="dashboard">
+                    <a href="dashboard.php"><i class="fa fa-angle-double-left">        Dashboard</i></a>
+                </div>
                 <nav class="menu-opener">
                     <div class="menu-opener-inner"></div>
                 </nav>
@@ -48,20 +51,17 @@ ob_start();
         </div>
         <nav class="menu">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#home">All</a></li>
-                <li><a href="#menu1">Menu 1</a></li>
-                <li><a href="#menu2">Menu 2</a></li>
-                <li><a href="#menu3">Menu 3</a></li>
+                <li class="active"><a href="#all">All</a></li>
+                <li><a href="#comments">Comment</a></li>
+                <li><a href="#hand-writting">Hand-Writting</a></li>
               </ul>
-            <ul class="menu_inner">
                 <?php
-                   include("comment.php")
+                   include("show_comment.php")
                 ?>
-            </ul>
         </nav>
         <div id="view_container">
             <div class="video_player">
-                <video id="youtube1" width="720" height="450"  preload="none" controls="false">
+                <video id="youtube1" width="720" height="450" autoplay  preload="none" controls="false">
                     <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
                 </video>
                 <div id="annotation" data-vdo_id="2">

@@ -9,6 +9,18 @@ var Annotation = function(player, media) {
 
 	this.vdo_id = null;
 
+	this.changePlayStage  = function(to) {
+		console.log('changestage ' + to)
+		switch(to) {
+			case 'play' :
+				$("a.play_pause").removeClass("pause").addClass("play").html("<i class=\"fa fa-2x fa-play\"></i>");
+				break;
+			case 'pause' :
+				$("a.play_pause").removeClass("play").addClass("pause").html("<i class=\"fa fa-2x fa-pause\"></i>");
+				break;
+		}
+	}
+
 	this.render = function($ele, position) {
 		var self = this;
 		var comment_box = $("<div />")
@@ -31,12 +43,7 @@ var Annotation = function(player, media) {
 		html+= '	<input type="radio" id="rb_handwritting" name="input_type" value="handwritting"/> <label for="rb_handwritting">Handwriting</label>';
 		html+= '</div>';
 		html+= '<div class="wrapper">';
-		html+= '	<div class="wrp_comment">';
-		html+= '		<textarea name="comment"></textarea>';
-		html+= '	</div>';
-		html+= '	<div class="wrp_handwritting">';
-		html+= '		<textarea name="comment"></textarea>';						
-		html+= '	</div>';
+		html+= '	<textarea name="comment"></textarea>';
 		html+= '</div>';
 		html+= '<button type="submit">Submit</button>';
 
@@ -45,13 +52,9 @@ var Annotation = function(player, media) {
 
 		$("#frm_comment").unbind("submit").submit(function(){
 			var input_type = $(this).find("[name=input_type]:checked").val();
-			var value = null;
-			if(input_type == 'handwritting') {
-				value = $("[name=handwritting_svg]").val();
-			} else {
-				value = $(this).find("textarea[name=comment]").val()
-			}
-			self.save_bookmark($("#annotation").data("vdo_id"), input_type, value, self.media.currentTime);
+			var value = (input_type == 'handwritting' ?  $("[name=handwritting_svg]").val() : null);
+			var comment = $(this).find("textarea[name=comment]").val();
+			self.save_bookmark($("#annotation").data("vdo_id"), input_type, value, comment, self.media.currentTime);
 			return false;
 		});
 
@@ -89,11 +92,13 @@ var Annotation = function(player, media) {
 
 	this.destroy = function() {
 		$("div.comment_box").remove();
-		$(".handwritting").remove();
+		$("#annotation + .handwritting").remove();
 		$("[name=handwritting_svg]").remove();
+		$("div.show_comment").remove();
 	};
 
-	this.save_bookmark = function(vdo_id, input_type, value, time){
+
+	this.save_bookmark = function(vdo_id, input_type, value, comment, time){
 		var self = this;
 		$.ajax({
 			url : 'api/save_comment.php',
@@ -103,6 +108,7 @@ var Annotation = function(player, media) {
 				vdo_id: vdo_id,
 				type : input_type,
 				value : value,
+				comment : comment,
 				time : time
 			}
 		}).done(function(response){
@@ -156,7 +162,7 @@ var Annotation = function(player, media) {
 		this.get(vdo_id);
 		var self = this;
 		$.each(this.data, function(idx, data){
-			var bookmark = $("<a />").attr("href", "#").addClass("bookmark");
+			var bookmark = $("<a />").attr("href", "#").addClass("bookmark").addClass(data.type);
 			var percent = self.time_to_sec(data.time)/self.media.duration;
 			var pos_left = $("div.bookmark").width()*percent - 4;
 			bookmark.data("time", self.time_to_sec(data.time))
@@ -185,9 +191,7 @@ var Annotation = function(player, media) {
 		$("div#annotation").unbind("click").on("click", function(e){
 			if($(e.target).is($(this))){
 				self.player.pause();
-				$(".video_control .play_pause").toggleClass("pause");
-				$(".video_control .play_pause").toggleClass("play");
-				$(".video_control .play_pause").text("Play");
+				self.changePlayStage("play");
 				var position = {
 					x : e.offsetX,
 					y : e.offsetY
@@ -202,44 +206,51 @@ var Annotation = function(player, media) {
 		if(this.data == null) this.get();
 		time = parseInt(time);
 		if(this.time_data[time] !== undefined) {
-			$("div.comment_box:not(.comment)").remove();
-			$.each(this.time_data[time], function(idx, data){
-				var comment_box = $("<div />")
-					.addClass("comment_box")
-					.addClass("comment")
-					.css({
-						position : 'absolute',
-						top : data.pos_y,
-						left: data.pos_x,
-						"background-color" : "white"
-					}).text(data.comment);
-				if(data.type != 'comment' || data.value == undefined || data.value.length == 0) comment_box.addClass("no-comment");
-				if(data.type == 'handwritting') {
-					if($(".handwritting_"+data.anno_id).length==0){
-						$("<div/>", {"class" : "handwritting handwritting_"+data.anno_id})
-							.width($("#annotation").width())
-							.height($("#annotation").height())
-							.insertAfter($("#annotation"));	
+			this.destroy_comment();
+			$("div.comment_box:not(.show_comment)").remove();
+			if($(".comment_"+time).length == 0) {
+				$.each(this.time_data[time], function(idx, data){
+					var comment_box = $("<div/>")
+						.addClass("show_comment")
+						.addClass("comment_"+time)
+						.css({
+							position : 'absolute',
+							"background-color" : "white"
+						}).text(data.comment);
+					if(data.type != 'comment' || data.value == undefined || data.value.length == 0) comment_box.addClass("no-comment");
+					if(data.type == 'handwritting') {
+						if($(".handwritting_"+data.anno_id).length==0){
+							$("<div/>", {"class" : "handwritting handwritting_"+data.anno_id})
+								.width($("#annotation").width())
+								.height($("#annotation").height())
+								.insertAfter($("#annotation"));	
+						}
+						console.log("handwritting_"+data.anno_id);
+						$(".handwritting_"+data.anno_id).signature({disabled : true, color : "#FF0000"});
+						$(".handwritting_"+data.anno_id).signature('draw', data.value);
 					}
-					console.log("handwritting_"+data.anno_id);
-					$(".handwritting_"+data.anno_id).signature({disabled : true, color : "#FF0000"});
-					$(".handwritting_"+data.anno_id).signature('draw', data.value);
-				}
-				comment_box.appendTo($ele);
-			});
-
+					comment_box.appendTo($ele);
+				});
+				$(".show_comment.comment_"+time).draggable();
+			}
 		}
 	};
 
 	this.destroy_comment = function() {
 		$("div.comment_box").remove();
-		$(".handwritting").remove();
+		$("div.show_comment").remove();
+		$("#annotation + .handwritting").remove();
 	};
 
 	this.jump_to = function(time) {
+		this.destroy_comment();
 		this.media.setCurrentTime(time);
 		this.media.play();
-		this.show(time);
+		this.show($("div#annotation"), time);
+		var percent = time/this.media.duration * 100;
+		$(".progres div.progres").css({"width" : percent+"%"});
+		this.changePlayStage('play');
+		this.media.pause();
 	}
 }
 
@@ -265,34 +276,28 @@ $(function(){
 				annotation.show($("div#annotation"), media.currentTime);
 			});
 
-			$(".video_control").on("click", ".pause", function(e){
-				e.preventDefault();
-				annotation.destroy();
-				player.pause();
-				$(this).toggleClass("pause");
-				$(this).toggleClass("play");
-				$(this).data("currenttime", media.currentTime);
-				$(this).text("Play");
-			});
-
 			$("a.mark").click(function(e){
 				e.preventDefault();
 				annotation.save_bookmark($("#annotation").data("vdo_id"), null, null, media.currentTime);
 				annotation.bookmark($("#annotation").data("vdo_id"));
 			});
 
-			$("a.fullscreen").click(function(e){
-				e.preventDefault();
-			    player.enterFullScreen();
-			});
 			
 			$(".video_control").on("click", ".play", function(e){
 				e.preventDefault();
-				media.setCurrentTime($(this).data("currenttime"));
+				$(this).data("currenttime", media.currentTime);
 				player.play();
-				$(this).toggleClass("pause");
-				$(this).toggleClass("play");
-				$(this).text("Pause");
+				annotation.changePlayStage('pause');
+				annotation.destroy_comment();
+				// $("#annotation .comment").remove();
+			});
+			
+			$(".video_control").on("click", ".pause", function(e){
+				e.preventDefault();
+				player.pause();
+				annotation.destroy();
+				$(this).data("currenttime", media.currentTime);
+				annotation.changePlayStage('play');
 			});
 
 			/*$("#comment a.jump").click(function(e){
@@ -306,6 +311,37 @@ $(function(){
 			$(".comment_container a.jump").click(function(e){
 				e.preventDefault();
 				annotation.jump_to(annotation.time_to_sec($(this).data("time")));
+			});
+
+			$("a.fullscreen").click(function(e){
+				e.preventDefault();
+				console.log('enter fullscreen')
+				media.enterFullScreen();
+				
+			});
+
+
+			var is_mousedown = false;
+			var progress_offset = $("li.progres").offset().left;
+			var progress_width  = $("li.progres").width();
+
+			$("li.progres").mousedown(function(e){
+				is_mousedown = true;
+				media.pause();
+			}).mouseup(function(e){
+				is_mousedown = false;
+				media.play();
+			})
+			.mousemove(function(e){
+				if(is_mousedown){
+					var x = e.pageX;
+					var from_left = parseInt(x-progress_offset);
+				    var percent = from_left/progress_width * 100;
+				    var time = media.duration * percent / 100;
+				    $("li.progres .progres").css({width : percent+"%"});
+					media.setCurrentTime(time);
+					annotation.show($("#annotation"), time);
+			    }
 			})
 		}
 	});
@@ -317,7 +353,17 @@ $(function(){
 
 	$(".menu-opener").click(function(e){
 		e.preventDefault();
-  		$(".menu-opener, .menu-opener-inner, .menu, .menu_inner, .tab").toggleClass("active");
+  		$(".menu-opener, .menu-opener-inner, .menu, .tab").toggleClass("active");
+	});
+
+	$("ul.menu_inner:not(.all)").hide();
+	$(".menu .nav a").click(function(e){
+		e.preventDefault();
+		$(".menu .nav a").parent().removeClass("active");
+		$(this).parent().addClass("active");
+		var tab = $(this).attr("href").replace("#", "");
+		$("ul.menu_inner").hide();
+		$("ul.menu_inner."+tab).show();
 	});
 
 });

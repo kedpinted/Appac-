@@ -91,7 +91,18 @@ body {
 	margin: auto;
 	padding: 6px 20px;
 }
-
+.navbar_container .dashboard{
+  color: #fff;
+  font-size: 1.3em;
+  float: left;
+}
+.navbar_container .dashboard i{
+  color: #fff;
+}
+.navbar_container .dashboard i:hover{
+  color: #000;
+  text-decoration: underline;
+}
 
 #nav_bar{
 	width: 200px;
@@ -230,6 +241,16 @@ body {
 	z-index: 5;
 }
 .universal_card .thumbnail_image 
+.hover_icon_container img{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 5;
+}
+
+.universal_card .thumbnail_image 
 .hover_icon_container .hover_icons{
 	width: 100%;
 	height: 60px;
@@ -333,7 +354,7 @@ body {
     margin-left: 0;
     list-style: none;
     position: fixed;
-    font-size: 14px;
+    font-size: 16px;
     background-color: #fff;
   }
 .nav {
@@ -345,9 +366,9 @@ body {
     border-bottom: 1px solid #ddd;
 }
 .nav-tabs>li>a, .nav-pills>li>a {
-    padding-right: 10.5px;
-    padding-left: 10.5px;
-    margin-right: 2px;
+    padding-right: 13px;
+    padding-left: 13px;
+    margin-right: 4px;
     line-height: 14px;
 }
 
@@ -434,7 +455,6 @@ body {
   z-index: 2;
 }
 .menu.active {
-  width: -webkit-calc(100% - 2rem);
   width: 300px;
   height: calc(100% - 24%);
   border: 1px solid #999;
@@ -464,7 +484,7 @@ body {
   padding: 0 8%;
   padding-top: 20%;
 }
-.menu_inner.active li{
+.menu_inner li{
 	color: #000;
 	width: 100%;
 	height: 120px;
@@ -472,43 +492,43 @@ body {
 	border: 2px solid #ddd;
 	border-radius: 5px;
 }
-.menu_inner.active li:hover{
+.menu_inner li:hover{
 	background-color: rgba(241,241,241,0.5);
 }
 
-.menu_inner.active li .process{
+.menu_inner li .process{
 	width: 100%;
 	height: 35px;
 	padding: 5px;
 }
-.menu_inner.active li .process .right{
+.menu_inner li .process .right{
 	float: right;
 }
-.menu_inner.active li .process .right a{
+.menu_inner li .process .right a{
 	padding-right: 5px;
 }
 
-.menu_inner.active li .comment{
+.menu_inner li .comment{
 	width: 100%;
 	height: 80px;
 	padding: 5px;
 }
-.menu_inner.active li .comment a{
+.menu_inner li .comment a{
 	cursor: pointer;
 }
 
-.menu_inner.active li .profile{
+.menu_inner li .profile{
 	width: calc(100% - 65%);
 	height: 100%;
 	padding: 3px;
 	float: left;
 	border-right: 2px solid #f1f1f1;
 }
-.menu_inner.active li .profile .image{
+.menu_inner li .profile .image{
 	height: calc(100% - 23%);
 }
 
-.menu_inner.active li .profile .image img{
+.menu_inner li .profile .image img{
 	   display: inline-block;
     width: 60px;
     height: 60px;
@@ -516,29 +536,29 @@ body {
     margin: 5px 0 0 4px;
     overflow: hidden;
 } 
-.menu_inner.active li .profile .edit{
+.menu_inner li .profile .edit{
     height: 23%;
 } 
-.menu_inner.active li .profile .edit a{
+.menu_inner li .profile .edit a{
     padding: 0 8px;
     color: #000;
     text-decoration: none; 
     float: left;
 } 
 
-.menu_inner.active li .comment_container{
+.menu_inner li .comment_container{
 	width: 65%;
 	height: 100%;
 	padding: 8px;
 	float: left;
 	color: #000;
 }
-.menu_inner.active li .comment_container .time{
+.menu_inner li .comment_container .time{
 	height: calc(100% - 80%);
 	padding-left: 65px;
 	font-size: 15px;
 }
-.menu_inner.active li .comment_container .ment{
+.menu_inner li .comment_container .ment{
 	height: 80%;
 	font-size: 13px;
 	overflow-y: auto; 
