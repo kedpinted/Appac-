@@ -346,26 +346,20 @@ $(function(){
 		}
 	});
 
-	/*$(".show_comment, .close_comment").click(function(e){
-		e.preventDefault();
-		$("#comment").toggle("slide", { direction : "right",collapsible: "true" });
-	});*/
-
 	$(".menu-opener").click(function(e){
 		e.preventDefault();
-  		$(".menu-opener, .menu-opener-inner, .menu, .tab").toggleClass("active");
+  		$(".menu-opener, .menu-opener-inner, .menu, .tab, #view_container").toggleClass("active");
 	});
 
 	$("ul.menu_inner:not(.all)").hide();
 	$(".menu .nav a").click(function(e){
 		e.preventDefault();
-		$(".menu .nav a").parent().removeClass("active");
+		$(".menu .nav  a").parent().removeClass("active");
 		$(this).parent().addClass("active");
 		var tab = $(this).attr("href").replace("#", "");
 		$("ul.menu_inner").hide();
 		$("ul.menu_inner."+tab).show();
 	});
-
 });
 
 

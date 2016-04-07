@@ -12,6 +12,7 @@ ob_start();
     
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="main_container">
@@ -52,12 +53,33 @@ ob_start();
                         }
                     ?>
                 </div>
-                    <div class="upload">
-                        <a href="add.php"><img src="/Appac-/images/upload.png"></a>
+
+                <div class="upload">
+                    <a href="#" data-toggle="modal" data-target="#myModal">
+                      <img src="/Appac-/images/upload.png">
+                    </a>
                 </div>
             </div>
-            
-        </div>  
+        </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal_dialog">
+                <div class="modal_content">
+                    <div class="modal_body">
+                        <button type="button" class="close_upload" data-dismiss="modal">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <form class="url_video"  method="post" onSubmit="return check();" name="reg" action="add_url.php" >
+                            <input type="text" class="form_video" name="vdo_name" required placeholder="Video name" />
+                            <input type="text" class="form_video" name="vdo_id" required placeholder="Paste url" />
+                            <button type="summit" class="btn btn-warning" name="add_url" value="Submit" id="add_url">Submit</button>
+                            <button type="summit" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="content_container">
             <div class="flex_cards">
                 <div class="cards_container">
@@ -94,6 +116,7 @@ ob_start();
               }
             });
           </script>-->
+                </div>
             </div>
         </div>
     </div>

@@ -64,19 +64,13 @@ div.video_player > div {
     text-decoration: none;
 }
 
-.video_control ul li.left {
-	width: 6.5%;
+.video_control ul li.left, .video_control ul li.right{
+	width: 8%;
     padding-top: 6px;
-    padding-left: 2.5%;
     font-size: .8em;
+    text-align: center;
 }
 
-.video_control ul li.right {
-	width: 9.5%;
-	padding-top: 6px;
-    padding-left: 2%;
-    font-size: .8em;
-}
 .video_control ul li.right a{
 	padding-right: 18%;
 }
@@ -99,12 +93,19 @@ div.video_player > div {
 	display: inline-block;
 	width: 15px;
 	height: 20px;
+}
+
+.comment{
+	width: 15px;
+	height: 20px;
+	/*background-color: #F00;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;*/
 	background-image: url('/Appac-/images/bookmark/pin_1.png');
 	background-repeat: no-repeat;
 	opacity: 0.8;
 }
-
-.comment{
+.handwritting{
 	width: 15px;
 	height: 20px;
 	/*background-color: #F00;
@@ -114,6 +115,8 @@ div.video_player > div {
 	background-repeat: no-repeat;
 	opacity: 0.8;
 }
+}
+
 .video_control ul li.progres div.bookmark a.bookmark:hover{
 	opacity: 1;
 }

@@ -54,7 +54,7 @@ ob_start();
                 <li class="active"><a href="#all">All</a></li>
                 <li><a href="#comments">Comment</a></li>
                 <li><a href="#hand-writting">Hand-Writting</a></li>
-              </ul>
+            </ul>
                 <?php
                    include("show_comment.php")
                 ?>
@@ -85,9 +85,6 @@ ob_start();
                     <li class="right">
                         <a class="mark" href="#">
                             <i class="fa fa-bookmark fa-2x"></i>
-                        </a>
-                        <a class="fullscreen" href="#">
-                            <i class="fa fa-expand fa-2x"></i>
                         </a>
                     </li>
                 </ul>

@@ -161,7 +161,119 @@ body {
 	opacity: 0.6;
 }
 
-#main_container
+
+.modal.fade.in {
+    top: 30%;
+}
+.modal.fade {
+    top: -25%;
+    -webkit-transition: opacity .3s linear,top .3s ease-out;
+    -moz-transition: opacity .3s linear,top .3s ease-out;
+    -o-transition: opacity .3s linear,top .3s ease-out;
+    transition: opacity .3s linear,top .3s ease-out;
+}
+.fade.in {
+    opacity: 1;
+}
+.modal {
+    position: fixed;
+    top: 10%;
+    left: 58%;
+    z-index: 1050;
+    width: 350px;
+    margin-left: -280px;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,0.3);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -moz-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.modal_content{
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+  box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
+.modal_body {
+    position: relative;
+    max-height: 500px;
+    padding: 10px;
+    overflow-y: auto;
+}
+.close_upload i{
+    color: #333;
+    opacity: .9;
+}
+.close_upload i:hover{
+    color: #EABC00;
+    opacity: 1;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: .9;
+}
+
+.url_video{
+    max-width: 330px;
+    padding: 20px 10px 10px 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+.url_video input[type="text"] {
+    margin-bottom: 15px;
+    border-radius: 5px
+}
+.url_video .form_video {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    font-size: 16px;
+    width: 250px;
+    height: auto;
+}
+button.close_upload{
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}
+.close_upload{
+    float: right;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+
+
 .content_container{
     top: 65px;
     left: 200px;
@@ -338,6 +450,15 @@ body {
 	width: 100%;
 	background-color: transparent;
 	position: relative;
+  transition-duration: .5s;
+}
+#view_container.active{
+  width: 100%;
+  background-color: transparent;
+  position: relative;
+  padding-right: 300px;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
 }
 #view_container .iframe_container{
 	width: 100%;
