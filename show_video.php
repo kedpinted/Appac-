@@ -2,7 +2,7 @@
     session_start();
     ob_start();
     include("connectdb.php");
-        $sql = "SELECT * FROM add_vdo ORDER BY id ASC LIMIT 0,6";
+        $sql = "SELECT * FROM add_vdo ORDER BY id";
         $result = mysql_db_query("test-2015",$sql);
         while($rs=mysql_fetch_array($result)) {
             $linkvdo = $rs["vdo_id"];

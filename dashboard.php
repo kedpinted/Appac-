@@ -12,7 +12,7 @@ ob_start();
     
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="main_container">

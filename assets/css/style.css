@@ -76,12 +76,17 @@ body {
 	color: #EABC00;
 }
 
+.containers{
+  height: 100%;
+  background-color: #222;
+}
+
 .navbar {
     position: relative;
     height: 35px;
     z-index: 1;
-    margin-bottom: 25px;
-    background: rgba(0,0,0,0.2);
+    margin-bottom: 35px;
+    background: #ddd;
     border: 1px solid transparent;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -93,15 +98,16 @@ body {
 }
 .navbar_container .dashboard{
   color: #fff;
-  font-size: 1.3em;
+  font-size: 1.2em;
   float: left;
+  letter-spacing: 0.6px;
 }
 .navbar_container .dashboard i{
-  color: #fff;
+  color: #000;
 }
 .navbar_container .dashboard i:hover{
-  color: #000;
-  text-decoration: underline;
+  color: #999;
+  text-decoration: none;
 }
 
 #nav_bar{
@@ -474,7 +480,6 @@ button.close_upload{
     /* margin-bottom: 20px; */
     margin-left: 0;
     list-style: none;
-    position: fixed;
     font-size: 16px;
     background-color: #fff;
   }
@@ -482,13 +487,14 @@ button.close_upload{
     margin-bottom: 20px;
     margin-left: 0;
     list-style: none;
+
+    color: #ea
 }
 .nav-tabs {
     border-bottom: 1px solid #ddd;
 }
-.nav-tabs>li>a, .nav-pills>li>a {
-    padding-right: 13px;
-    padding-left: 13px;
+.nav-tabs li a{
+    padding: 13px 13px;
     margin-right: 4px;
     line-height: 14px;
 }
@@ -516,21 +522,21 @@ button.close_upload{
 }*/
 
 .menu-opener-inner {
-  background: #fff;
+  background: #3c3c3c;
   height: .2rem;
   margin-left: .5em;
   margin-top: 15px;
   width: 1.5rem;
 }
 .menu-opener-inner::before, .menu-opener-inner::after {
-  background: white;
+  background: #3c3c3c;
   content: '';
   display: block;
   height: .18rem;
   width: 1.5rem;
 }
 .menu-opener-inner:hover, .menu-opener-inner:hover::before, .menu-opener-inner:hover::after{
-  background: #000;
+  background: #fff;
 }
 
 .menu-opener-inner::before {
@@ -603,9 +609,17 @@ button.close_upload{
   margin: 0;
   margin-left: 5%;
   padding: 0 8%;
-  padding-top: 20%;
 }
+
 .menu_inner li{
+  color: transparent;
+  border-color: transparent;
+}
+.menu_inner li i{
+  color: transparent;
+}
+
+.menu_inner li.active{
 	color: #000;
 	width: 100%;
 	height: 120px;
@@ -613,73 +627,75 @@ button.close_upload{
 	border: 2px solid #ddd;
 	border-radius: 5px;
 }
-.menu_inner li:hover{
+.menu_inner li.active:hover{
 	background-color: rgba(241,241,241,0.5);
 }
 
-.menu_inner li .process{
+.menu_inner li.active .process{
 	width: 100%;
 	height: 35px;
 	padding: 5px;
 }
-.menu_inner li .process .right{
+.menu_inner li.active .process .right{
 	float: right;
 }
-.menu_inner li .process .right a{
+.menu_inner li.active .process .right a{
 	padding-right: 5px;
 }
 
-.menu_inner li .comment{
+.menu_inner li.active .comment{
 	width: 100%;
 	height: 80px;
 	padding: 5px;
 }
-.menu_inner li .comment a{
+.menu_inner li.active .comment a{
 	cursor: pointer;
 }
 
-.menu_inner li .profile{
+.menu_inner li.active .profile{
 	width: calc(100% - 65%);
 	height: 100%;
 	padding: 3px;
 	float: left;
 	border-right: 2px solid #f1f1f1;
 }
-.menu_inner li .profile .image{
+.menu_inner li.active .profile .image{
 	height: calc(100% - 23%);
 }
 
-.menu_inner li .profile .image img{
+.menu_inner li.active .profile .image img{
 	   display: inline-block;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    margin: 5px 0 0 4px;
+    margin: 8px 0 0 4px;
     overflow: hidden;
 } 
-.menu_inner li .profile .edit{
+.menu_inner li.active .profile .edit{
     height: 23%;
+    float: right;
 } 
-.menu_inner li .profile .edit a{
+.menu_inner li.active .profile .edit a{
     padding: 0 8px;
     color: #000;
     text-decoration: none; 
-    float: left;
 } 
-
-.menu_inner li .comment_container{
+.menu_inner li.active i{
+    color: #ababab;
+}
+.menu_inner li.active .comment_container{
 	width: 65%;
 	height: 100%;
 	padding: 8px;
 	float: left;
 	color: #000;
 }
-.menu_inner li .comment_container .time{
+.menu_inner li.active .comment_container .time{
 	height: calc(100% - 80%);
 	padding-left: 65px;
 	font-size: 15px;
 }
-.menu_inner li .comment_container .ment{
+.menu_inner li.active .comment_container .ment{
 	height: 80%;
 	font-size: 13px;
 	overflow-y: auto; 

@@ -25,9 +25,9 @@
                 $html.= '       <img src="/Appac-/images/profile/rab.jpg">';
                 $html.= '   </div>';
                 $html.= '   <div class="edit">';
-                $html.= '       <a href="update.php?anno_id='.$value['anno_id'].'">';
-                $html.= '           <i class="fa fa-pencil-square-o fa-lg"></i>';
-                $html.= '       </a>';
+               // $html.= '       <a href="update.php?anno_id='.$value['anno_id'].'">';
+               //$html.= '           <i class="fa fa-pencil-square-o fa-lg"></i>';
+               // $html.= '       </a>';
                 $html.= '       <a href="delete_comment.php?anno_id='.$value['anno_id'].'">';
                 $html.= '           <i class="fa fa-trash-o fa-lg"></i>';
                 $html.= '       </a>';
@@ -44,6 +44,7 @@
                 $html.= '        </div>';
                 $html.= '    </a>';
                 $html.= '</li>';
+
 
                 echo $html;
             }

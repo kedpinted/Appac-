@@ -164,7 +164,7 @@ var Annotation = function(player, media) {
 		$.each(this.data, function(idx, data){
 			var bookmark = $("<a />").attr("href", "#").addClass("bookmark").addClass(data.type);
 			var percent = self.time_to_sec(data.time)/self.media.duration;
-			var pos_left = $("div.bookmark").width()*percent - 4;
+			var pos_left = $("div.bookmarks").width()*percent - 4;
 			bookmark.data("time", self.time_to_sec(data.time))
 			bookmark.css({
 				left: pos_left+"px",
@@ -174,7 +174,7 @@ var Annotation = function(player, media) {
 				e.preventDefault();
 				self.jump_to($(this).data("time"));
 			});
-			bookmark.appendTo($("div.bookmark"));
+			bookmark.appendTo($("div.bookmarks"));
 		});
 	};
 
@@ -218,6 +218,7 @@ var Annotation = function(player, media) {
 							"background-color" : "white"
 						}).text(data.comment);
 					if(data.type != 'comment' || data.value == undefined || data.value.length == 0) comment_box.addClass("no-comment");
+				
 					if(data.type == 'handwritting') {
 						if($(".handwritting_"+data.anno_id).length==0){
 							$("<div/>", {"class" : "handwritting handwritting_"+data.anno_id})
@@ -274,11 +275,13 @@ $(function(){
 				$(".progres div.progres").css({"width" : percent+"%"});
 				// annotation.destroy_comment();
 				annotation.show($("div#annotation"), media.currentTime);
+				this.destroy_comment();
 			});
 
 			$("a.mark").click(function(e){
 				e.preventDefault();
-				annotation.save_bookmark($("#annotation").data("vdo_id"), null, null, media.currentTime);
+				player.pause();
+				annotation.save_bookmark($("#annotation").data("vdo_id"),null, null, null, media.currentTime);
 				annotation.bookmark($("#annotation").data("vdo_id"));
 			});
 
@@ -313,14 +316,6 @@ $(function(){
 				annotation.jump_to(annotation.time_to_sec($(this).data("time")));
 			});
 
-			$("a.fullscreen").click(function(e){
-				e.preventDefault();
-				console.log('enter fullscreen')
-				media.enterFullScreen();
-				
-			});
-
-
 			var is_mousedown = false;
 			var progress_offset = $("li.progres").offset().left;
 			var progress_width  = $("li.progres").width();
@@ -348,7 +343,7 @@ $(function(){
 
 	$(".menu-opener").click(function(e){
 		e.preventDefault();
-  		$(".menu-opener, .menu-opener-inner, .menu, .tab, #view_container").toggleClass("active");
+  		$(".menu-opener, .menu-opener-inner, .menu, .tab, #view_container, .menu_inner li").toggleClass("active");
 	});
 
 	$("ul.menu_inner:not(.all)").hide();

@@ -13,7 +13,6 @@ ob_start();
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <script type="text/javascript" src="assets/vendor/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/vendor/jquery.signature/jquery.signature.min.js"></script>
     <script type="text/javascript" src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
     <script type="text/javascript" src="assets/js/test.js"></script>
@@ -39,6 +38,7 @@ ob_start();
                 </div>
             </div>
         </div>
+    <div class="containers">
         <div class="navbar">
             <div class="navbar_container">
                 <div class="dashboard">
@@ -62,9 +62,9 @@ ob_start();
         <div id="view_container">
             <div class="video_player">
                 <video id="youtube1" width="720" height="450" autoplay  preload="none" controls="false">
-                    <source src="http://www.youtube.com/watch?v=dQ3QJoS5aaw" type="video/youtube" >
+                    <source src="https://www.youtube.com/watch?v=5nP9hU8eUfE" type="video/youtube" >
                 </video>
-                <div id="annotation" data-vdo_id="2">
+                <div id="annotation" data-vdo_id="16">
                     <!--  editor -->
                 </div>
             </div>
@@ -79,7 +79,7 @@ ob_start();
                         </a>
                     </li>
                     <li class="progres">
-                        <div class="bookmark"></div>
+                        <div class="bookmarks"></div>
                         <div class="progres"></div>
                     </li>
                     <li class="right">
@@ -90,6 +90,7 @@ ob_start();
                 </ul>
             </div>
         </div>
+    </div>
 
             <!--<div id="comment">
                 <ul data-role="listview">
