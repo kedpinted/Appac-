@@ -41,9 +41,9 @@ ob_start();
     <div class="containers">
         <div class="navbar">
             <div class="navbar_container">
-                <div class="dashboard">
-                    <a href="dashboard.php"><i class="fa fa-angle-double-left">        Dashboard</i></a>
-                </div>
+                <!--<div class="dashboard">
+                    <a href="#"><i class="fa fa-angle-double-left">        Dashboard</i></a>
+                </div>-->
                 <nav class="menu-opener">
                     <div class="menu-opener-inner"></div>
                 </nav>

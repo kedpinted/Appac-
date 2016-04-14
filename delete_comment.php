@@ -5,7 +5,9 @@
                                                     
     $result = mysql_query($sql) or die(mysql_error());
 
-    header("location:video.php");	
+	    echo "<script language=\"JavaScript\">";
+		echo "alert('Delete Comment Success.');window.location='video.php';";
+		echo "</script>";
 
     mysql_close();
 ?>

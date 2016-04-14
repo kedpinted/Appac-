@@ -82,12 +82,11 @@ var Annotation = function(player, media) {
 		});
 		$(".close_comment").click(function(e){
 			e.preventDefault();
+			self.destroy_comment();
 			self.destroy();
 		});
 
-		$(function(e) {
-		    $(".comment_box").draggable();
-		});
+		$(".comment_box").draggable();
 	};
 
 	this.destroy = function() {
@@ -95,6 +94,7 @@ var Annotation = function(player, media) {
 		$("#annotation + .handwritting").remove();
 		$("[name=handwritting_svg]").remove();
 		$("div.show_comment").remove();
+		$(".handwritting").remove();
 	};
 
 
@@ -241,6 +241,7 @@ var Annotation = function(player, media) {
 		$("div.comment_box").remove();
 		$("div.show_comment").remove();
 		$("#annotation + .handwritting").remove();
+		$(".handwritting").remove();
 	};
 
 	this.jump_to = function(time) {
@@ -275,7 +276,6 @@ $(function(){
 				$(".progres div.progres").css({"width" : percent+"%"});
 				// annotation.destroy_comment();
 				annotation.show($("div#annotation"), media.currentTime);
-				this.destroy_comment();
 			});
 
 			$("a.mark").click(function(e){
