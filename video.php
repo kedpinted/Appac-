@@ -17,7 +17,13 @@ ob_start();
     <script type="text/javascript" src="bower_components/mediaelement/build/mediaelement-and-player.min.js"></script>
     <script type="text/javascript" src="assets/js/test.js"></script>
 
-
+<?php 
+    $vid = $_REQUEST['vid'];
+    $sql="SELECT * FROM add_vdo WHERE id = $vid";
+    $result = mysql_db_query("test-2015",$sql);
+    $row = mysql_fetch_assoc($result);
+    $videocode = $row['vdo_id']; 
+?>
 </head>
 <body>
     <div id="main_container">
@@ -62,7 +68,7 @@ ob_start();
         <div id="view_container">
             <div class="video_player">
                 <video id="youtube1" width="720" height="450" autoplay  preload="none" controls="false">
-                    <source src="https://www.youtube.com/watch?v=5nP9hU8eUfE" type="video/youtube" >
+                    <source src="https://www.youtube.com/watch?v=<?php echo $videocode; ?>" type="video/youtube" >
                 </video>
                 <div id="annotation" data-vdo_id="16">
                     <!--  editor -->
@@ -91,22 +97,16 @@ ob_start();
             </div>
         </div>
     </div>
-
-            <!--<div id="comment">
-                <ul data-role="listview">
-                    <li data-icon="delete"><a class="close_comment" href="#" data-position="right" data-rel="close">Close</a></li>
-
-                    <li>
-                        <div>
-                            <?php
-                                include("comment.php");
-                            ?>
-                        </div>
-                    </li>
-                </ul>
-            </div>-->
-
        
     </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("a.updatecomment").click(function(){
+      var annoid = $(this).data("annoid");
+      var textold = $("span.commenttext-"+ annoid).html();
+      $("span.commenttext-"+ annoid).html('<form action="update.php"><input name="anno_id" value="'+annoid+'" hidden/><input name="comment" value="'+textold+'" style="width: 100%;" ><button type="submit">ตกลง</button></form>');
+    });
+  });
+</script>
 </body>
 </html>

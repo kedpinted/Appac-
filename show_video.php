@@ -11,7 +11,7 @@
 
             echo "<div class=\"content_card universal_card\">
                     <div class=\"thumbnail_image\">
-                        <a href=\"video.php\">
+                        <a href=\"video.php?vid=".$idvdo."\">
                             <div class=\"hover_icon_container\">
                                 <img src=\"http://i1.ytimg.com/vi/".$linkvdo."/hqdefault.jpg\">
                                     <div class=\"hover_icons\">
